@@ -21,12 +21,18 @@ if __name__ == '__main__':
     )
     browser.get('https://www.linkedin.com/login')
 
-    cookies = pickle.load(open("linkedincookies.pkl", "rb"))
-    for cookie in cookies:
-        try:
-            browser.add_cookie(cookie)
-        except Exception as e:
-            print(e)
-    browser.get('https://www.linkedin.com/feed/')
-        
-    time.sleep(60)
+    # find the element and send the key
+    browser.find_element(By.ID, 'ifl-InputFormField-3').send_keys(email)
+
+    # find the element and send the key
+    browser.find_element(By.ID, "password").send_keys(password)
+
+    # Log into the account
+    login_button = browser.find_element(
+        By.XPATH, "//button[@type='submit']").click()
+
+    time.sleep(20)
+
+    cookies = browser.get_cookies()
+
+    pickle.dump(cookies, open("cookies.pkl", "wb"))
