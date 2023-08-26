@@ -9,7 +9,6 @@ import pickle
 if __name__ == '__main__':
     email = "princewill835@gmail.com"
     password = "Colla@200"
-    job = "backend engineer"
 
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
@@ -20,17 +19,19 @@ if __name__ == '__main__':
     browser = webdriver.Chrome(
         options=options,
     )
-    browser.get('https://www.linkedin.com/login')
+    browser.get('https://secure.indeed.com/auth')
     #Cookies already saved to log into linkedin
-    cookies = pickle.load(open("linkedincookies.pkl", "rb"))
+    cookies = pickle.load(open("indeedcookies.pkl", "rb"))
     for cookie in cookies:
         try:
             browser.add_cookie(cookie)
         except Exception as e:
             print(e)
-    browser.get('https://www.linkedin.com/feed/')
+    browser.get('https://ng.indeed.com/')
     
-    time.sleep(5)
-    search = browser.find_element(By.ID, "global-nav-typeahead")
-    search.send_keys(job)     
-    time.sleep(10)
+    # browser.find_element(By.ID, "text_input_what").send_keys("Backend Engineer")
+    # browser.find_element(By.ID, "text_input_where").send_keys("Backend Engineer")
+    
+    
+        
+    time.sleep(60)
