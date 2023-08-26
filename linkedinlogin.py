@@ -20,7 +20,7 @@ if __name__ == '__main__':
         options=options,
     )
     browser.get('https://www.linkedin.com/login')
-
+    #Cookies already saved to log into linkedin
     cookies = pickle.load(open("linkedincookies.pkl", "rb"))
     for cookie in cookies:
         try:
