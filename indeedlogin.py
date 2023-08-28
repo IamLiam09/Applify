@@ -29,9 +29,8 @@ if __name__ == '__main__':
             print(e)
     browser.get('https://ng.indeed.com/')
     
-    # browser.find_element(By.ID, "text_input_what").send_keys("Backend Engineer")
-    # browser.find_element(By.ID, "text_input_where").send_keys("Backend Engineer")
-    
-    
+    browser.find_element(By.XPATH, "//input[@id='text-input-what']").send_keys("Backend Engineer")
+    browser.find_element(By.XPATH, "//input[@id='text-input-where']").send_keys("Dubai")
+    browser.find_element(By.XPATH, "//button[@type='submit']").click()
         
     time.sleep(60)

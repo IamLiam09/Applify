@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 # import time to load up the linkedin login verification
 import time
 import pickle
+import pyautogui as hand
 if __name__ == '__main__':
     email = "princewill835@gmail.com"
     password = "Colla@200"
@@ -21,7 +22,7 @@ if __name__ == '__main__':
         options=options,
     )
     browser.get('https://www.linkedin.com/login')
-    #Cookies already saved to log into linkedin
+    # Cookies already saved to log into linkedin
     cookies = pickle.load(open("linkedincookies.pkl", "rb"))
     for cookie in cookies:
         try:
@@ -29,8 +30,21 @@ if __name__ == '__main__':
         except Exception as e:
             print(e)
     browser.get('https://www.linkedin.com/feed/')
-    
-    time.sleep(5)
-    search = browser.find_element(By.ID, "global-nav-typeahead")
-    search.send_keys(job)     
-    time.sleep(10)
+
+    job_search = browser.find_element(
+        By.XPATH, "//input[@placeholder='Search']").send_keys("Backend Engineer")
+
+    # click on the search bar
+    hand.click(x=207, y=168)
+    hand.press("Enter")
+
+    # click on the job
+    time.sleep(6)
+    hand.click(x=72, y=225)
+    hand.press("Enter")
+
+    # filter
+    hand.click(x=621, y=219)
+    hand.press("Enter")
+    time.sleep(6)
+    print(hand.position())
