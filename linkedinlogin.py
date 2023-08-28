@@ -35,16 +35,44 @@ if __name__ == '__main__':
         By.XPATH, "//input[@placeholder='Search']").send_keys("Backend Engineer")
 
     # click on the search bar
-    hand.click(x=207, y=168)
+    hand.click(x=207, y=168, duration=1)
     hand.press("Enter")
 
-    # click on the job
-    time.sleep(6)
-    hand.click(x=72, y=225)
-    hand.press("Enter")
+    # click
+    # on the job
+    time.sleep(5)
+    hand.leftClick(x=72, y=225, duration=1)
 
-    # filter
-    hand.click(x=621, y=219)
-    hand.press("Enter")
-    time.sleep(6)
-    print(hand.position())
+    # FILTER
+    
+    #click on remote
+    time.sleep(2)
+    hand.leftClick(x=621, y=219, duration=1) 
+    #Input click
+    time.sleep(2)
+    hand.leftClick(x=524, y=283, duration=1) 
+    #send result
+    time.sleep(2)
+    hand.leftClick(x=718, y=425, duration=1) 
+    
+    #Date Posted
+    time.sleep(2)
+    hand.leftClick(x=340, y=215, duration=1) 
+    #Date input
+    time.sleep(2)
+    hand.leftClick(x=210, y=371, duration=1) 
+    #send result
+    time.sleep(2)
+    hand.leftClick(x=404, y=463, duration=1) 
+    
+    #Experince 
+    time.sleep(2)
+    hand.leftClick(x=491, y=220, duration=1)
+    hand.leftClick(x=393, y=277, duration=1)
+    hand.leftClick(x=350, y=323, duration=1)
+    hand.leftClick(x=350, y=369, duration=1)
+    hand.leftClick(x=548, y=552, duration=1)
+    # time.sleep(5)
+    # print(hand.position())
+
+
