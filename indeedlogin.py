@@ -21,7 +21,7 @@ if __name__ == '__main__':
         options=options,
     )
     browser.get('https://secure.indeed.com/auth')
-    #Cookies already saved to log into linkedin
+    # Cookies already saved to log into linkedin
     cookies = pickle.load(open("indeedcookies.pkl", "rb"))
     for cookie in cookies:
         try:
@@ -30,24 +30,36 @@ if __name__ == '__main__':
             print(e)
     browser.get('https://ng.indeed.com/')
     
-    # browser.find_element(By.XPATH, "//input[@id='text-input-what']").send_keys("Backend Engineer")
-    # browser.find_element(By.XPATH, "//input[@id='text-input-where']").send_keys("Dubai")
-    # browser.find_element(By.XPATH, "//button[@type='submit']").click()
-        
-    
+    #simplify login
     browser.switch_to.new_window('tab')
     
-    browser.get("https://www.google.com")
+    browser.get("https://chrome.google.com/webstore/detail/simplify-copilot-%E2%80%93-autofi/pbanhockgagggenencehbnadejlgchfc")
     
-    browser.find_element(By.XPATH, "//textarea[@id='APjFqb']").send_keys("Backend Engineer dubai remote indeed")
+    browser.find_element(By.XPATH, "https://chrome.google.com/webstore/detail/simplify-copilot-%E2%80%93-autofi/pbanhockgagggenencehbnadejlgchfc")
     
-    browser.find_element(By.XPATH, "//textarea[@id='APjFqb']").send_keys(Keys.RETURN)
-    
-    browser.find_element(By.TAG_NAME, 'h3').click()
-    
-    browser.find_element(By.XPATH, "//div[normalize-space()='Remote']").click()
-    
-    browser.find_element(By.ID, "filter-remotejob-menu").click() 
-    
-    browser.find_element(By.XPATH, "//div[normalize-space()='Date posted']").click()
+    #Google search for job on linked
 
+    browser.switch_to.new_window('tab')
+
+    browser.get("https://www.google.com")
+
+    browser.find_element(
+        By.XPATH, "//textarea[@id='APjFqb']").send_keys("Backend Engineer dubai remote indeed")
+
+    browser.find_element(
+        By.XPATH, "//textarea[@id='APjFqb']").send_keys(Keys.RETURN)
+
+    browser.find_element(By.TAG_NAME, 'h3').click()
+
+    browser.find_element(By.XPATH, "//div[normalize-space()='Remote']").click()
+
+    browser.find_element(By.ID, "filter-remotejob-menu").click()
+
+    time.sleep(3)
+
+    hand.leftClick(x=788, y=310, duration=1)
+
+    browser.find_element(
+        By.XPATH, "//div[normalize-space()='Date posted']").click()
+
+    hand.leftClick(x=164, y=487, duration=1)
