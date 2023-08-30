@@ -43,4 +43,11 @@ if __name__ == '__main__':
     
     browser.find_element(By.XPATH, "//textarea[@id='APjFqb']").send_keys(Keys.RETURN)
     
-    browser.find_element(By.TAG_NAME, 'h3').click()        
+    browser.find_element(By.TAG_NAME, 'h3').click()
+    
+    browser.find_element(By.XPATH, "//div[normalize-space()='Remote']").click()
+    
+    browser.find_element(By.ID, "filter-remotejob-menu").click() 
+    
+    browser.find_element(By.XPATH, "//div[normalize-space()='Date posted']").click()
+
