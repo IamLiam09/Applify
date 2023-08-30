@@ -42,4 +42,5 @@ if __name__ == '__main__':
     browser.find_element(By.XPATH, "//textarea[@id='APjFqb']").send_keys("Backend Engineer dubai remote indeed")
     
     browser.find_element(By.XPATH, "//textarea[@id='APjFqb']").send_keys(Keys.RETURN)
-            
+    
+    browser.find_element(By.TAG_NAME, 'h3').click()        
