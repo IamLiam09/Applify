@@ -35,9 +35,20 @@ if __name__ == '__main__':
     
     browser.get("https://chrome.google.com/webstore/detail/simplify-copilot-%E2%80%93-autofi/pbanhockgagggenencehbnadejlgchfc")
     
-    browser.find_element(By.XPATH, "https://chrome.google.com/webstore/detail/simplify-copilot-%E2%80%93-autofi/pbanhockgagggenencehbnadejlgchfc")
+    time.sleep(3)
+    
+    hand.leftClick(x=929, y=305, duration=1)
+    
+    time.sleep(3)
+    
+    hand.leftClick(x=568, y=249, duration=1)
+    
+    #handle process for simplify 
+    
     
     #Google search for job on linked
+    
+    time.sleep(5)
 
     browser.switch_to.new_window('tab')
 

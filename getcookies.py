@@ -3,12 +3,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-# import time to load up the linkedin login verification
+from selenium.webdriver.common.keys import Keys
 import time
 import pickle
+import pyautogui as hand
 if __name__ == '__main__':
-    email = "princewill835@gmail.com"
-    password = "Colla@200"
+    email = "williamndubuisidev@gmail.com"
+    password = "Forjob@2023"
 
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
@@ -19,25 +20,32 @@ if __name__ == '__main__':
     browser = webdriver.Chrome(
         options=options,
     )
-    browser.get('https://secure.indeed.com/auth?hl=en_NG&co=NG&continue=https%3A%2F%2Fng.indeed.com%2F&tmpl=desktop&service=my&from=gnav-util-homepage&jsContinue=https%3A%2F%2Fng.indeed.com%2F&empContinue=https%3A%2F%2Faccount.indeed.com%2Fmyaccess')
+    browser.get('https://simplify.jobs/auth/login')
+
+    wait = WebDriverWait(browser, 10)
+
+    wait.until(EC.visibility_of_element_located(
+        (By.XPATH, "//input[@id='email']")))
 
     # find the element and send the key
-    browser.find_element(By.ID, 'ifl-InputFormField-3').send_keys(email)
+    browser.find_element(By.XPATH, "//input[@id='email']").send_keys(email)
+    browser.find_element(
+        By.XPATH, "//input[@id='password']").send_keys(password)
 
     browser.find_element(
-        By.XPATH, "//button[@type='submit']").click()
+        By.XPATH, "//button[@type='submit']").send_keys(Keys.ENTER)
 
-    time.sleep(5)
+    # time.sleep(5)
 
-    browser.find_element(By.ID, "auth-page-google-password-fallback").click()
+    # browser.find_element(By.ID, "auth-page-google-password-fallback").click()
 
-    time.sleep(5)
+    # time.sleep(5)
 
-    browser.find_element(
-        By.XPATH, "//input[@name='__password']").send_keys(password)
+    # browser.find_element(
+    #     By.XPATH, "//input[@name='__password']").send_keys(password)
 
-    browser.find_element(
-        By.XPATH, "//button[@type='submit']").click()
+    # browser.find_element(
+    #     By.XPATH, "//button[@type='submit']").click()
     # Log into the account
     # login_button = browser.find_element(
     #     By.XPATH, "//button[@type='submit']").click()
@@ -47,4 +55,4 @@ if __name__ == '__main__':
     cookies = browser.get_cookies()
     print(cookies)
 
-    pickle.dump(cookies, open("indeedcookies.pkl", "wb"))
+    pickle.dump(cookies, open("simplifycookies.pkl", "wb"))
