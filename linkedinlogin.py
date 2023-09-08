@@ -44,28 +44,28 @@ if __name__ == '__main__':
     hand.leftClick(x=72, y=225, duration=1)
 
     # FILTER
-    
-    #click on remote
+
+    # click on remote
     time.sleep(2)
-    hand.leftClick(x=621, y=219, duration=1) 
-    #Input click
+    hand.leftClick(x=621, y=219, duration=1)
+    # Input click
     time.sleep(2)
-    hand.leftClick(x=524, y=283, duration=1) 
-    #send result
+    hand.leftClick(x=524, y=283, duration=1)
+    # send result
     time.sleep(2)
-    hand.leftClick(x=718, y=425, duration=1) 
-    
-    #Date Posted
+    hand.leftClick(x=718, y=425, duration=1)
+
+    # Date Posted
     time.sleep(2)
-    hand.leftClick(x=340, y=215, duration=1) 
-    #Date input
+    hand.leftClick(x=340, y=215, duration=1)
+    # Date input
     time.sleep(2)
-    hand.leftClick(x=210, y=371, duration=1) 
-    #send result
+    hand.leftClick(x=210, y=371, duration=1)
+    # send result
     time.sleep(2)
-    hand.leftClick(x=404, y=463, duration=1) 
-    
-    #Experince 
+    hand.leftClick(x=404, y=463, duration=1)
+
+    # Experince
     time.sleep(2)
     hand.leftClick(x=491, y=220, duration=1)
     hand.leftClick(x=393, y=277, duration=1)
@@ -74,5 +74,3 @@ if __name__ == '__main__':
     hand.leftClick(x=548, y=552, duration=1)
     # time.sleep(5)
     # print(hand.position())
-
-

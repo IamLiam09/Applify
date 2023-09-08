@@ -32,9 +32,8 @@ if __name__ == '__main__':
     browser.find_element(
         By.XPATH, "//input[@id='password']").send_keys(password)
 
-    browser.find_element(
-        By.XPATH, "//button[@type='submit']").send_keys(Keys.ENTER)
-
+    # hand.leftClick(browser.find_element(
+    #     By.XPATH, "//button[@type='submit']"))
     # time.sleep(5)
 
     # browser.find_element(By.ID, "auth-page-google-password-fallback").click()
@@ -50,7 +49,7 @@ if __name__ == '__main__':
     # login_button = browser.find_element(
     #     By.XPATH, "//button[@type='submit']").click()
 
-    time.sleep(40)
+    time.sleep(100)
 
     cookies = browser.get_cookies()
     print(cookies)
