@@ -29,25 +29,25 @@ if __name__ == '__main__':
         except Exception as e:
             print(e)
     browser.get('https://ng.indeed.com/')
-    
-    #simplify login
+
+    # simplify login
     browser.switch_to.new_window('tab')
-    
-    browser.get("https://chrome.google.com/webstore/detail/simplify-copilot-%E2%80%93-autofi/pbanhockgagggenencehbnadejlgchfc")
-    
+
+    browser.get(
+        "https://chromewebstore.google.com/detail/buster-captcha-solver-for/mpbjkejclgfgadiemmefgebjfooflfhl")
+
     time.sleep(3)
-    
+
     hand.leftClick(x=929, y=305, duration=1)
-    
+
     time.sleep(3)
-    
+
     hand.leftClick(x=568, y=249, duration=1)
-    
-    #handle process for simplify 
-    
-    
-    #Google search for job on linked
-    
+
+    # handle process for simplify
+
+    # Google search for job on linked
+
     time.sleep(5)
 
     browser.switch_to.new_window('tab')

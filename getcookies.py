@@ -20,6 +20,22 @@ if __name__ == '__main__':
     browser = webdriver.Chrome(
         options=options,
     )
+    # get the buster extension first
+    browser.maximize_window()
+
+    browser.get(
+        "https://chrome.google.com/webstore/detail/buster-captcha-solver-for/mpbjkejclgfgadiemmefgebjfooflfhl")
+
+    time.sleep(3)
+
+    hand.leftClick(x=1116, y=278, duration=1)
+
+    time.sleep(3)
+
+    hand.leftClick(x=714, y=283, duration=1)
+
+    time.sleep(3)
+
     browser.get('https://simplify.jobs/auth/login')
 
     wait = WebDriverWait(browser, 10)
@@ -48,6 +64,13 @@ if __name__ == '__main__':
     # Log into the account
     # login_button = browser.find_element(
     #     By.XPATH, "//button[@type='submit']").click()
+
+    time.sleep(3)
+
+    hand.leftClick(x=654, y=577, duration=1)
+
+    time.sleep(10)
+    print(hand.position())
 
     time.sleep(100)
 
