@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
     browser.get('https://simplify.jobs/auth/login')
 
-    wait = WebDriverWait(browser, 10)
+    wait = WebDriverWait(browser, 30)
 
     wait.until(EC.visibility_of_element_located(
         (By.XPATH, "//input[@id='email']")))
@@ -74,7 +74,7 @@ if __name__ == '__main__':
 
     time.sleep(100)
 
-    cookies = browser.get_cookies()
-    print(cookies)
+    # cookies = browser.get_cookies()
+    # print(cookies)
 
-    pickle.dump(cookies, open("simplifycookies.pkl", "wb"))
+    # pickle.dump(cookies, open("simplifycookies.pkl", "wb"))

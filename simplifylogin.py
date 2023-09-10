@@ -20,20 +20,25 @@ if __name__ == '__main__':
     browser = webdriver.Chrome(
         options=options,
     )
+    # get the screen to be maximazed
+    browser.maximize_window()
+
     browser.get('https://simplify.jobs/auth/login')
     # Cookies already saved to log into linkedin
 
-    
-    wait = WebDriverWait(browser, 10)
+    wait = WebDriverWait(browser, 30)
 
     wait.until(EC.visibility_of_element_located(
         (By.XPATH, "//input[@id='email']")))
-    
+
     browser.find_element(By.XPATH, "//input[@id='email']").send_keys(email)
     browser.find_element(
         By.XPATH, "//input[@id='password']").send_keys(password)
 
     cookies = pickle.load(open("simplifycookies.pkl", "rb"))
+    time.sleep(3)
+
+    hand.leftClick(x=654, y=577, duration=1)
     for cookie in cookies:
         try:
             browser.add_cookie(cookie)
