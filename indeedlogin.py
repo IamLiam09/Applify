@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+from simplifylogin import details
 import time
 import pickle
 import pyautogui as hand
@@ -13,10 +14,7 @@ if __name__ == '__main__':
 
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
-    # options.add_argument('proxy-server=106.122.8.54:3128')
-    # options.add_argument(r'--user-data-dir=C:\Users\suppo\AppData\Local\Google\Chrome\User Data\Default')
 
-    # using chrome because undetected_chromedriver closes immediately
     browser = webdriver.Chrome(
         options=options,
     )
@@ -30,21 +28,9 @@ if __name__ == '__main__':
             print(e)
     browser.get('https://ng.indeed.com/')
 
-    # simplify login
-    browser.switch_to.new_window('tab')
+    # log into simplify
 
-    browser.get(
-        "https://chromewebstore.google.com/detail/buster-captcha-solver-for/mpbjkejclgfgadiemmefgebjfooflfhl")
-
-    time.sleep(3)
-
-    hand.leftClick(x=929, y=305, duration=1)
-
-    time.sleep(3)
-
-    hand.leftClick(x=568, y=249, duration=1)
-
-    # handle process for simplify
+    details(browser)
 
     # Google search for job on linked
 
@@ -61,7 +47,7 @@ if __name__ == '__main__':
         By.XPATH, "//textarea[@id='APjFqb']").send_keys(Keys.RETURN)
 
     browser.find_element(By.TAG_NAME, 'h3').click()
-
+    
     browser.find_element(By.XPATH, "//div[normalize-space()='Remote']").click()
 
     browser.find_element(By.ID, "filter-remotejob-menu").click()
@@ -74,3 +60,5 @@ if __name__ == '__main__':
         By.XPATH, "//div[normalize-space()='Date posted']").click()
 
     hand.leftClick(x=164, y=487, duration=1)
+
+    browser.maximize_window()

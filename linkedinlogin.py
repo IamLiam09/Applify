@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from simplifylogin import details
 # import time to load up the linkedin login verification
 import time
 import pickle
@@ -14,13 +15,19 @@ if __name__ == '__main__':
 
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
-    # options.add_argument('proxy-server=106.122.8.54:3128')
-    # options.add_argument(r'--user-data-dir=C:\Users\suppo\AppData\Local\Google\Chrome\User Data\Default')
-
-    # using chrome because undetected_chromedriver closes immediately
+    
     browser = webdriver.Chrome(
         options=options,
     )
+    
+    # log into simplify
+    
+    details(browser)
+    
+    time.sleep(5)
+
+    browser.switch_to.new_window('tab')
+    
     browser.get('https://www.linkedin.com/login')
     # Cookies already saved to log into linkedin
     cookies = pickle.load(open("linkedincookies.pkl", "rb"))
@@ -50,7 +57,7 @@ if __name__ == '__main__':
     hand.leftClick(x=621, y=219, duration=1)
     # Input click
     time.sleep(2)
-    hand.leftClick(x=524, y=283, duration=1)
+    hand.leftClick(x=524, y=310, duration=1)
     # send result
     time.sleep(2)
     hand.leftClick(x=718, y=425, duration=1)
